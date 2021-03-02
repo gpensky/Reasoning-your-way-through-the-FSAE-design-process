@@ -1,0 +1,891 @@
+\documentclass[10pt, a4paper, article, oneside, twocolumn, final]{memoir}
+\semiisopage[9]             % set page borders
+\thanksmarkseries{alph}     % cofigure thanks marks to letters
+
+\usepackage[per-mode=symbol, detect-weight=true]{siunitx} % properly display number and units 
+\usepackage[normal]{engord} % properly display ordinals
+\usepackage{amsmath}		% math commands
+\usepackage{amsfonts}		% math fonts 
+
+\usepackage{hyperref}       % hiperlinks commands and configurations
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+
+
+
+\begin{document}
+
+\title{Reasoning your way through the FSAE design process}
+\author{Geoff Pearson\thanks{Senior Member of fsae.com forums, was member of RMIT and Monash FSAE teams and author of the posts here collected. Member page on \href{http://www.fsae.com/forums/member.php?2511-Big-Bird}{fsae.com}.} \and Gabriel Pensky\thanks{Was member of UFPR FSAE team and edited the words here to a more readable format. E-mail: \href{mailto:gabriel.pensky@ufprformula.com}{gabriel.pensky@ufprformula.com}.}}
+\maketitle
+
+
+
+%-------------------------------------------------------------------------
+\begin{abstract}
+    The words here in this document are part of the posts written by Geoff Pearson in the thread  “Reasoning your way through the FSAE design process” at the \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process}{fsae.com} forum. They were collected, the misspelling corrected and the format edited for the sake of readability. It also has the purpose of helping new FSAE members to better understand the text, with added notes and external references. Feel free to distribute and send comments.
+\end{abstract}
+
+
+
+%-------------------------------------------------------------------------
+\chapter*{Design Management Structure}
+\chapterprecis{Posted by Geoff Pearson (username “Big Bird”) on 25 October 2009. Available  at \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=1751\&viewfull=1\#post1751}{fsae.com} (Part~1) and \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=128151\&viewfull=1\#post128151}{fsae.com} (Part~2) or the original can be seen at \href{http://web.archive.org/web/20150403203005/http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=1751\&viewfull=1\#post1751}{web.archive.org}.}
+
+I’ve been sitting down in the odd spare minutes I’m getting here and there, and slapping together a bit of a thesis about what I think of design, specifically in the FSAE context. I’ve written the odd wordy response here and there on these boards, but as with the nature of these forums, they tend to get scattered in the morass of information. I figured I’d slap it all together in one place and see if it sinks or swims. Over the next few weeks or so I’m going to slap up a few different pieces relating to FSAE. It will be mainly to do with the philosophical side of the event, given there is a wealth of information here relating to technical design issues. 
+
+The following is around \num{4000} words or so. It might be rather painful at one sit, so you might want a beer or two to see you through. 
+
+My contention has always been that this event is won and lost on good management principles. Unfortunately, we are not taught such things in our university careers. Rather we are mostly taught a collection of quite disparate facts relating to engineering science -- and it is up to us to piece them together into some sort of greater truth. Therefore, many of us blindly barge in with our bag full of engineering formulae and software skills and attack an engineering design problem the way it is taught at uni. Given the repeated failure rates (usually, around \SIrange{60}{70}{\percent} fail to complete all events at most comps), and the large disparity in points across the top \num{10} at most events, I think that what we have been taught is falling short to some extent. This competition isn’t anywhere near as close as I think it could be or should be.
+
+Whilst many of those attempting this project have excellent technical and analysis skills, something is getting lost between the design stage and the implementation stage. We are often seeing engineering as a purely technical exercise, whereas in a real project we have to take in a lot of outside factors that can conflict with, or even overwhelm, our technical aims. 
+
+The key point is that we have finite resources, and this is true of all project situations. Sure, in F1 the limit of those finite resources is somewhere up in the stratosphere compared to what we have to deal with, but even at that level, the resources aren’t infinite. And when you are dealing with a finite resource base, then your design decision-making process needs to reflect those limits. Not only do you have to decide whether a certain component or design will make your vehicle faster (if that is your design goal, but more on that later), but you also have to assess whether it is the most feasible direction for your team to find car speed.
+
+So rather than just say that “this is all about management” and leave it that, I’m going to try to put my money where my mouth is and convey what I consider to be good holistic design principles. I don’t consider myself to be a guru of any sorts when it comes to such things, but after viewing around a dozen of these events I feel I have seen enough common failure points to at least offer my thoughts. At least once I have committed all this stuff to the screen, I might feel as though I’ve said enough and won’t have to bore you all senseless by hijacking your threads in the future. 
+
+\section*{Design Management Structure}
+
+The following is a bit of a structure I’d follow as an FSAE vehicle design process. You’ll note that the thread I’m presenting below is focused on the actual vehicle design itself since that is what we talk about most in FSAE circles. Once you have read through it you might recognize that we could generate similar trains of process for the static events, and these would link in at the top end of the process. But I’m getting ahead of myself. 
+
+For the sake of readability, I’ve labeled the below Levels \numrange{1}{4}, although this does not imply any order of importance -- they are all significant in their own right. You might think of them as a design hierarchy, but I’d say each level has its own type of expertise required to make a success of this project. 
+
+\subsection*{Level~1 -- Detail And Component Design}
+
+This comprises the design and manufacture of the individual vehicle components, and this is the level we are probably most comfortable with after our university training. This is the level where we are designing parts, calculating loads, masses, stresses, stiffnesses, heat transfer rates, etc. We are using typical engineering design and analysis tools such as CAD, FEA and CFD software, maybe engineering formulae, (stresses in shafts, bearing loads), etc. It is probably the area where we can best get advice from our academics, given this level requires expertise in specific areas, and in general, academics tend to be people with deep expertise in a particular field. Types of questions asked at this level: How do I make this part lighter? How do I make this stiffer? What material will we use? How do we manufacture this component? What physical tests do we need to perform on these components? Do we want a magnetic or Hall effect sensor for our crank angle sensor? What spring stiffnesses do we need? 
+
+\subsection*{Level~2 -- Vehicle-level Integration }
+
+This is where we are joining all the components together into a complete functioning vehicle. It is also the level where we identify conflicting goals that may arise between different components and subsystems. Types of questions asked at this level: What are our performance trade-offs at a whole vehicle level? How does our suspension geometry match up with our differential choice? How does our engine packaging tie in with our need for easy access and servicing? How do we address tradeoffs between engine mass and output torque/\allowbreak power? How do we address the conflicting demands of cockpit packaging and front suspension geometry? 
+
+\subsection*{Level~3 -- Competition-level Integration}
+
+Given the whole vehicle at Level~2, how does this design tie in with our overall competition-strategy? Types of questions asked at this level: How do we score the greatest number of points at the competition? What are the inherent trade-offs in our own design at the event level? For example, how does our vehicle speed strategy tie in with fuel economy? Are there conflicts between our dynamic event performance and our static event performance? What are the risk factors that could jeopardize our competition performance? 
+
+\subsection*{Level~4 -- Project-level Management}
+
+This is the overarching management of the whole project -- how the competition performance ties in with other managerial level stuff like time and budget management, usage of human resources, etc. Functions performed at this level: Holding the whole project together so that you deliver this year, keep everyone reasonably happy, and hand over a healthy project to future teams Types of questions asked at this level: What are our goals for this project? Are they feasible given our resources? How are we going for budget, time, material resources, etc? Are our key stakeholders (e.g university, tech workshop staff, sponsors, supporters, team members, etc) happy with our project? How will our project affect future teams? Are our team members working in harmony? Are we leaving this team in a better state than we found it? 
+
+\section*{Discussion of the above process}
+
+There is nothing particularly groundbreaking about any of the above, and I hope I haven’t trivialized all this or bored you with statements of the obvious. However, I personally think it is really important to break down this complex project into its constituent parts, and know-how where each sub-problem ties into the project as a whole. Being part of the leadership group in our team years ago, we were faced with all manner of issues to deal with: budget and time management issues, workshop access, setting performance goals, design queries about individual components, packaging conflicts, tooling purchases, etc etc etc. We certainly couldn’t solve these problems and make decisions without knowing where to file them and how they all linked into each other in the overall hierarchy. 
+
+I’ve made a few simplifications with the above process. Most notably, you could easily split up Levels 1 and 2 even further, into components integrating into subsystems then integrating into the full vehicle. That is up to the individual, but probably not too relevant to my following argument. 
+
+Level~2 vehicle integration is where things start getting interesting, and this is where the good teams begin to shine. This is how, for instance, how your diff choice or your inner wheel packaging interacts with your suspension geometry, how all the suspension system ties in with the chassis, how power delivery matches up with tire grip characteristics/\allowbreak chassis geometry, etc. In my year, we learned some interesting lessons about integration when our choice of 10” wheels, large camber gains, and floor mounted shock absorbers (all justified at an overall vehicle level), resulted in next to zero shock movement. We had to make some rather ugly tetrahedral upper a-arms to get around it, but we learned from it. 
+
+Visually, you can get an idea of integration by how well load paths are fed into the chassis, or how the various controls sit comfortably with the driver. Teams could assess their success at this level in terms of the overall handling of the vehicle, drivability, and overall track speed. Certainly, when you see a Cornell or a UWA on track and at their best, you can see the effects of a well-integrated vehicle. 
+
+Getting your Level~2 vehicle integration right is a pretty complex task, and is certainly not achievable simply by optimizing all your Level~1 components and then bolting them all together. Personally, I found this Level~2 stuff to be the most technically challenging of the tasks that I faced, as it requires wisdom that you just don’t have as an incoming FSAE designer. Experience is the key and assistance and advice from alumni and design judges can be a wealth of information in this respect. (I am loath to say, that your academic support at uni might not be much help at this level. Once again, most academics are hard-edged scientists/\allowbreak researchers, and their expertise is usually more about depth than it is about breadth. They are not often too helpful when trying to reason your way through a complex maze of competing priorities). 
+
+Level~3 is where this particular competition gets interesting, and where I would say the greatest gains can be had for the least impact on your time and money. I’d also say that it receives the least attention of the majority of teams, as it seems many have already decided what their overall design “answer” is before they enter the event (usually “we’re going to build the fastest lightest most powerful car and blow everyone to the weeds”). The organizers have developed a clever set of rules that not only reward vehicle speed, but also some “non-racing” parameters such as fuel economy, cost, manufacturability, and even knowledge and ability to communicate. It gives teams who may lack the resources to build a full-on mini-F1 a chance to compete, but at the same time, it makes the competition possibly even more complex than F1 (i.e. vehicle speed and lap times aren’t the sole measures of success). Making some effort to understand the conflicts that are inherent in the rules and the scoring formulae goes a long way to developing an integrated strategy that scores well across the whole competition. I will address this a little further later in my ramblings. 
+
+Level~4 Project Management is just that -- it is the set of tasks that ensures that the whole team works together, that deliverables are delivered in a timely manner, that key relationships are maintained with outside stakeholders, and that future teams’ chances of success are enhanced by this particular project. Level~3 competition success is an important factor, but not the only factor to be addressed at this level. Did you complete the project on time and budget? Is your university happy with your year’s work? Are your team members/\allowbreak workshop staff/\allowbreak sponsors and supporters happy? Did you manage to put a decent effort into all parts of the project (e.g. both dynamic \textsc{and} static events)? Have you enhanced the prospects of future teams by your effort? These are the sorts of questions that define success at the project management level. 
+
+\section*{Measures of success at each level}
+
+When you break a project up into the four steps above, you can then make sense of how to measure your progress at each level. As engineers, we should be letting data make decisions for us, so it is important to understand what measures are relevant. 
+
+\begin{description}
+    \item[Level~1] Typical engineering detail level performance parameters -- masses, power figures, coefficients of friction, stiffnesses, natural frequencies, damping coefficients, piece costs, etc.
+    \item[Level~2] Whole vehicle level performance parameters: acceleration capabilities in each direction (forward, lateral and braking), fuel consumption, whole vehicle cost.
+    \item[Level~3] Competition points scored.
+    \item[Level~4] Management level measurables -- key ones I would suggest being time, money, and goodwill. (I have no idea how you measure goodwill, but I’d still call it measurable as we can get a sense of whether it is increasing or decreasing). 
+\end{description}
+
+From the above, I’d hope it is apparent there is a bit of a “flow” occurring between levels. The individual pieces with their masses, stiffnesses, power outputs, etc, all come together at a higher level to give us a complete vehicle with certain acceleration and fuel consumption characteristics. The whole-vehicle performance characteristics then tie in with our static event skills to enable us to score a certain amount of points in the competition. The number of points scored can then be tied into the dollars and hours spent to determine the overall value of the project (I’d suggest dollars/\allowbreak points and hours/\allowbreak points being the most useful tools at this level). 
+
+It is our job as designers to try to understand this flow, and how the relationships work between different variables and different levels so that we can make wise decisions that give us the greatest return for our own given resources. Many of the mistakes we make come from not taking the time to understand some of these relationships, or assuming some of these relationships are obvious or given. 
+
+I’ll come back to this later, but note that many of the parameters that are often used as outright deciding factors by many of us in our projects, such as mass and power, are deeply buried in the detail-design of Level~1. If your team management is making project-level decisions based on Level~1 parameters (e.g. “this year we need to lose \SI{5}{\kilogram}” or “this year we need another \SI{5}{hp}”), then either your management is fluent in the way that these values convert across the various levels to dollars per point and hours per point, or they are misguided.
+
+\section*{The design path}
+
+In a complex project like this, you need to construct yourself a logical pathway that neatly weaves its way through the above levels of integration. You certainly can’t start at Level~1 component design and then work your way up. I would say a successful vehicle project plan would look something like this: 
+
+\begin{enumerate}
+    \item Establish \textbf{Level~4} Project goals and constraints, defining your measures of success for the overall project;
+    \item Develop \textbf{Level~3} competition strategy outlining what resources will be attributed to what events;
+    \item Develop \textbf{Level~2} vehicle performance goals based on your competition strategy, detailing whole vehicle and sub-system goals;
+    \item Design \textbf{Level~1} components to suit subsystem and vehicle goals;
+    \item Manufacture \textbf{Level~1} components and assemble them into the working whole;
+    \item Test vehicle to see how it matches up to \textbf{Level~2} vehicle performance goals, developing as required;
+    \item Compete at the event, following \textbf{Level~3} strategy previously determined;
+    \item Finalize project, comparing outcomes with initial measures of success (\textbf{Level~4}) and reporting to key stakeholders accordingly.
+\end{enumerate}
+
+Notice how the process follows a bit of a “V”. We start with top-level project goals, work our way down through all the various levels to define our individual component goals. We then work our way back up through to the higher levels, at each level cross-referencing where we are, to where we had planned to be. The plan might be a little simplified, and we may very well do a bit of back-and-forth at the middle levels as our project might not work out as we had wanted, but the basic process is there. 
+
+\section*{Determining a Competition Strategy}
+
+From my observation over the years, I’d say that a large proportion of teams have very little idea of how to deal with the middle levels of the project. Many come in with roughly thrown-together ideas of Level~4 project goals (e.g. “We’re going to blow everyone away”) and then barge straight into Level~1 detail design decisions (our car needs to be \SI{190}{\kilogram}, we need a Honda engine, do we want a turbo, our uprights need to be CNC'd 7071 aluminum, what diff should we use, we really need a carbon tub, etc, etc, etc). The Level~2 and 3 reasoning are mainly glossed over based on a series of untried assumptions. 
+
+I believe the greatest understanding of what is important in this project can be gained by some reasoned analysis at Level~3. We have a very tightly defined set of rules that set out what sort of track we are competing on (\num{70} meter long straights, slaloms of defined spacing, average speeds, etc), and we have a set of point-scoring formulae that tightly define how well we will score for given performance outcomes. Competition results can give us a good idea of what sort of longitudinal and lateral g’s these cars can achieve, and we can usually find some sort of track map with a bit of searching too, so we can’t argue we don’t know what we are in for. 
+
+The competition rules are too complex to make absolute generalizations like “more power is better” or “less weight is better”. In some cases we have conflicts directly related to the performance of the vehicle (e.g. more power can drive down lap times but can also drive up fuel consumption), in some cases, the conflicts are less direct (less weight can increase track speed but can tend to decrease vehicle robustness and reliability). FSAE is all about finding balance, and you will not find that balance point if you can only think in absolutes.
+
+When sorting out a strategy at this level I think it is important to stand above the specific technical details of the vehicle and look at the design on a very basic level. You are looking at the car at a  conceptual level, and the goal is to establish whether a car of $x$ \si{\kilo\watt} and $y$ \si{\kilogram} will score better than a car of $a$ \si{\kilo\watt} and $b$ \si{\kilogram}. Is your strategy to try for outright straight-line speed, or cornering speed, or fuel economy, or some middle ground with a bit of each? We are basically looking for trends in the rules, and specifics such as gear ratios or suspension settings are not particularly relevant at this level. (For example, when you are considering the choice between a \SI{165}{\kilogram} single and a \SI{200}{\kilogram} \SI{4}{cyl}, it is not worth worrying about specific gearing ratios or suspension geometries of the two options because either can be optimized when you get further into the detail design). The essence of good decision-making is in reducing a complex problem down to a limited number of variables that you can deal with (and of course, picking the variables that are going to give you the most useful info). 
+
+The best few hours of work I ever did in this project was to set up a simple lapsim to see how longitudinal and lateral accelerations affect lap times, (i.e. taking the Level~2 vehicle performance outputs, and seeing how they affect Level~3 point scoring). The first lapsim I did was really simple -- breaking up an autocross/\allowbreak endurance track map into a series of straight lines and circular arcs, assigning appropriate lateral and longitudinal accelerations (assuming constant accel), and then finding lap times. Change acceleration values, see the change in outcome. Although very simple, it was one step up from simple “more power to weight ratio is better” reasoning, and gave some really useful results. For example, according to this simple autocross/\allowbreak endurance lapsim: 
+
+\begin{itemize}
+    \item A \SI{10}{\percent} increase in lateral acceleration gives approximately 8 times the points return of a \SI{10}{\percent} increase in forward acceleration. 
+    \item A \SI{10}{\percent} increase in lateral acceleration gives approximately 14 times the points return of a \SI{10}{\percent} increase in braking deceleration (I have no concern sharing these figures because people like Pat Clarke or Claude Rouelle aren’t going to believe you unless you can prove it yourself. Or come up with your own lap sims that disprove me. Just do it). 
+\end{itemize}
+
+Although every model is an abstraction of reality in some way, (in particular this lapsim didn’t cover transients, and assumed constant forward accel whereas we are usually diminishing along the straight) I was confident that the figures were at least ballpark. Average speeds were around \SI{55}{\kilo\metre\per\hour}, max speed was \SIrange{100}{110}{\kilo\metre\per\hour}, lap times were around a second off from actual event times, WOT time was around \SI{17}{\percent}. So there were enough “ticks” there to indicate that we weren’t way off the ball. 
+
+Note that by analyzing how accelerations in each direction are affecting point score, we are completely removing how we are achieving these accelerations. Therefore we are clearing our mind of details like whether the vehicle is a \num{600/4} or \num{450} single, or carbon tub or spaceframe, or any other design details that may be clouding the argument. 
+
+Once you have a rough acceleration-based lapsim, you can start to extend it incrementally to incorporate lower-level data. Do whatever you want, but at this point in time my own lapsim inputs include overall mass, engine power, tire grip coefficients in each direction and tire load sensitivity, rear axle load under acceleration, frontal area and drag coefficients, and engine thermal efficiency; and outputs are times and point scores for each event, \si{\percent} time grip limited and power limited, min and max speeds, fuel used, and maybe a few other things I’ve forgotten. 
+
+(One of the important things is to model fuel economy. Hard to do exactly, but as a start, I broke it down into an overall energy load (including kinetic energy, drag, and rolling resistance), and an estimated engine thermal efficiency. Knowing petrol is around \SI{44}{\mega\joule\per\kilogram}, and is around \SI{0.7}{\kilogram} per liter, you can get an idea of liters used. Presently my model predicts around \num{2.5} liters for the RMIT car, and around \num{3.2} liters for a UWA style car -- which is pretty well representative). 
+
+The importance of going through the above is that you can start to get some idea of how your Level~1 detail design decisions affect Level~3 competition scores. If you know how a \SI{1}{\kilogram} weight difference or a \SI{1}{\kilo\watt} power difference affects overall scores, you can start making informed decisions on your overall strategy based on engineering data, rather than “we need to lose \SI{2}{\kilogram} because University $X$ is lighter than us”. 
+
+You can also start reasoning your way through some of the more complex issues related to this event. Rather than simple arguments like “we have to have engine $X$ because it the most powerful”, we can start to be a little more refined: “We use engine $Y$. It has \SI{10}{\kilo\watt} less than engine $X$, and this costs us approximately \num{30} points in straight-line acceleration across the dynamic events. However engine $Y$ weighs \SI{10}{\kilogram} less than engine $X$, and this gains us \num{15} points in cornering performance. Also, the lighter weight and lower speeds save us \num{10} points in fuel economy, and the cost-saving saves us \num{5} points in the cost event. Therefore we are at no potential disadvantage to engine $Y$, and the time saving from this simpler design gives us more time for driver training and testing”. 
+
+(The figures might be a little different, but that last argument is heading in the direction of where we were going at RMIT a few years back). 
+
+\section*{Reality Check}
+
+The greatest lesson I learned by working through the above process is how little effect the potential performance of a design really plays out on final results. For example, my own model indicates that a \SI{1}{\kilogram} weight saving is worth around \num{1} point in the overall event. If we can see that for instance, a \SI{5}{\kilogram} saving is worth maybe \numrange{5}{10} points in terms of overall potential -- and then we see that the top 5 in a comp may be spread by \numrange{200}{300} points -- it puts perspective on all that time you spend saving 1 kg out of your chassis or a few hundred grams out of your uprights. And that if your team ended up \num{250} points behind the winner or even \num{50} points behind the winner, it is not going to be a change in your vehicle’s performance specs that is going to bridge the gap.
+
+
+
+%-------------------------------------------------------------------------
+\chapter*{Potential vs Execution}
+\chapterprecis{Posted on \engordnumber{1} November 2009. Available  at \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=1920\&viewfull=1\#post1920}{fsae.com}.}
+
+The point-scoring merit of a particular vehicle can be roughly broken down as follows: 
+
+\begin{equation*}
+    \begin{aligned}
+        Total\ Points = {} & Track\ Speed\ Points\\ 
+                           & + Fuel\ Economy\ Points\\ 
+                           & + Static\ Event\ Points
+    \end{aligned}
+\end{equation*}
+
+I have already stressed that design decisions made to increase track speed, may not necessarily have a positive effect on fuel economy or static event points (think of what a supercharger can do to fuel economy, or what a carbon tub might do to overall vehicle cost). So when I hear arguments that “design option $X$” makes the car faster, the first question that comes to mind is whether the designer has considered, or even cares, about the rest of the project (or whether they might even be deliberately ignoring the other aspects to “sell” their pet design). Any proposed design needs to be fairly assessed across all the above criteria. 
+
+Anyway, the argument I wish to make with all the above is that “Track Speed points” can be broken down even further into three interrelated factors: 
+
+\begin{description}
+    \item[Design Potential] How the car will perform according to the calculations/\allowbreak lapsims that we’ve discussed earlier.
+    \item[Vehicle Completenes] How effectively we deliver the designed vehicle to achieve its full potential. 
+    \item[Driver Skill] How effectively the driver delivers the full performance of the vehicle I’d combine the latter two factors under the term “execution”.
+\end{description}
+
+Now I’ve seen plenty of examples where all the focus was on the “design potential” side of things, but the final execution didn’t deliver on that potential. Examples include cars that don’t run properly on competition day or drivers who obviously lack experience in the car. In our own teams, I’ve seen examples where months were spent laboring over a couple of kgs (effectively a couple of points), but on competition day a swag of points gets lost because the acceleration event driver hasn’t driven the car before. 
+
+For most teams, the design potential of the vehicle may be worth around \numrange{0}{20} points relative to your competition (and in many cases the decisions we are laboring over are maybe worth single points if that). Failure to complete the vehicle properly is a penalty of up to hundreds of points relative to your competition, and well-trained drivers could be worth up to \num{100} points. (I’m being a little vague as it depends on the team and where they are at -- but certainly, the penalties for poor execution are much more serious than the gains most of us are aiming for in our design stages). 
+
+The critical issue is time. We have a limited allocation of time that we have to share across the above three factors, and each deserves attention. Unfortunately, the design stage has to be completed first, which is when we are at our least knowledgeable. Therefore we over-allocate time to the design side of things, maybe commit ourselves to a design that overstretches our manufacturing resources, and effectively short-change ourselves of time allocated to the more important latter stages of the project. 
+
+The overall point I’m making, with this and the earlier post is that the parameters we often use to measure the worth of our vehicles are misguided. It is very easy to be convinced that a kilogram or a kilowatt is important, as we worry about the respective spec sheets of our’s and our competitions’ vehicles. To assess the true worth of (for example) a kilogram we need to understand: 
+
+\begin{itemize}
+    \item How that kilogram converts to overall competition points (in terms of potential performance) 
+    \item How the time cost of that kilogram might affect our final execution of the whole project 
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------------
+\chapter*{Knowledge transfer}
+\chapterprecis{Posted on 15 July 2010. Available  at \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=820\&viewfull=1\#post820}{fsae.com}.}
+
+I see three key aspects of knowledge transfer.
+
+The first part of good knowledge transfer is the material itself, and in this case, design and event reviews, prepared CD's for new team members (welcoming docs, team history/\allowbreak philosophy, etc), shared network drives, etc can be really helpful. Scott, the Monash initiation CD I saw in 2005 was brilliant. 
+
+The second part is the human “teaching” side of it -- how the existing team attempts to share the info with the incoming team. This is where mentoring, theory/\allowbreak philosophy seminars and especially social events come into it. Getting alumni and senior team members to mix with the newbies can be gold as far as initiating them into the team's philosophies. The best teams I've seen are usually the more social ones and have approachable and encouraging seniors and team management. 
+
+The final aspect is the learner themself, and this is where we have the least control. Some want to learn, some think they already know it all, some just want the outgoing crew to hurry up and ship off so they can get on with doing their own thing. It's a cultural thing, you can do your best to engender a supportive learning environment, but there will always be those who think they are above being helped. 
+
+Edward De Bono was on ABC radio recently, speaking about critical thinking. His point was that it is presently fashionable to think of critical analysis as finding fault. This leads to a culture of dissatisfaction and often changes for the sake of it. Critical appreciation is a much rarer and finer talent. Something to keep in mind when your team is redesigning its pedal tray for the \engordnumber{10} time in \num{5} years\ldots 
+
+
+
+%-------------------------------------------------------------------------
+\chapter*{The implementation of the design management process}
+\chapterprecis{Posted on 30 November 2010. Available  at \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=23152\&viewfull=1\#post23152}{fsae.com}.}
+
+To give the relevant context to our choices and decisions, I will outline a little of our history first. 
+
+\section*{RMIT History, circa 2003}
+
+At the start of 2003, we were in a rather ordinary position. We had failed to complete either of the two previous years’ events, and there was talk around the uni of the project being cut back or even closed down due to abuse of privileges and huge money being wasted on a project that was giving no results. The engines we inherited from previous teams were pretty well stuffed, a couple of the team’s previous sponsors had dropped out, and when we finally got the go-ahead for the project our effective budget was about a quarter of what the previous team had spent. Also, Uni of Wollongong had proven to everyone here in Oz that they were just going to punish any team that wasn’t \SI{100}{\percent} ready for the event. We didn’t have anywhere near the money required to compete with UoW at their own game, and we were going to have to come up with something unique and cheap. 
+
+A crew of us had attended the previous 2002 Oz event (where UoW and UWA had pretty well-hosed everyone), and in my own notebook I had taken down the following: 
+
+\begin{itemize}
+    \item Of the \num{22} teams entered, only \num{4} were looking anywhere near competitive on track (UoW, RIT, UWA, and Stralsund from memory) 
+    \item Of the \num{18} struggling teams, nearly all of them were having engine problems of one sort or the other (i.e. engine wasn’t operating at its full potential, if at all) 
+    \item Our own team tried to win the comp mainly by focussing on a gun engine (read turbo\ldots) and were way off the pace before they eventually blew up 
+    \item The struggling teams were all showing similar signs of poor time management -- incomplete cars, harried team members, poor pit management, etc. 
+\end{itemize}
+
+The overwhelming conclusion that we drew was that the majority of teams were attempting too much, and failing to get anywhere near completing the project. This opinion was shared by many motorsport industry people we spoke to at the event, who were despairing at how most teams were overcomplicating their designs and struggling to pull it all together. 
+
+Given that many were struggling to get their engines sorted, the big question we asked was, exactly how important is the performance of the engine? If engine reliability is such an Achilles heel for most teams, why does every team seem to mess around with their engines so much? Could we find a simpler solution that would lessen the risk of engine failure? If we decided to take a step back from excessive engine development, would it be possible to gain points in other areas? 
+
+\section*{Setting Project Goals}
+
+Starting with the above observations, we had to start setting some directions for our design. Very roughly, below is a representation of our train of thought. 
+
+\subsection*{Level~4 goals/\allowbreak directives/\allowbreak constraints}
+\begin{itemize}
+    \item \textbf{Must} complete every event at the competition; 
+    \item \textbf{Must}  complete project for under \si{\$}; 
+    \item Need to find project strategy that leaves enough time for static as well as dynamic events; 
+    \item Need to have the vehicle running by the start of November at the latest (December competition); 
+    \item Need to develop a strategy that minimizes impact on uni workshop resources; 
+    \item Very important to source donated engine; 
+    \item Very important to reduce student workload compared to previous years; 
+    \item Very important to attract new sponsors; 
+    \item It will be difficult to compete with UoW on equal terms, so need to develop a competition-strategy that attacks them from “left field”. 
+\end{itemize}
+
+\subsection*{Level~3 goals/\allowbreak directives/\allowbreak constraints}
+\begin{itemize}
+    \item Focus on points that other teams aren’t seriously chasing (fuel economy, static events); 
+    \item Ensure competition completed by simplifying design (reducing number of parts, dump turbo); 
+    \item Allocate appropriate people and resources to static events; 
+    \item Reduce vehicle mass to aid fuel economy as well as track speed; 
+    \item Focus on cornering over straight-line performance (cornering acceleration being $x$ times more effective in returning points than straight-line acceleration); 
+    \item Allow some deficit in engine performance due to low points sensitivity to straight-line acceleration on FSAE tracks; 
+    \item Majority of corners on typical FSAE track taken with very little or no braking so design suspension accordingly; 
+    \item Vehicle must be rugged and easily serviceable at the event itself.
+\end{itemize}
+
+\subsection*{Level~2 goals/\allowbreak directives/\allowbreak constraints}
+\begin{itemize}
+    \item Overall vehicle mass target under \SI{200}{\kilogram};
+    \item Engine output at least \SI{50}{hp} max;
+    \item Steel space-frame chassis imposed (constrained by finances and team knowledge); 
+    \item Targets were set for overall vehicle geometry such as wheelbase, track, trail, scrub radius, roll axis geometry, etc; 
+    \item Design constraint of \SI{10}{\arcsecond} wheels set for unsprung and suspension designers (for mass and rotational inertia reasons); 
+    \item Design for Torsen diff (already owned by the team); 
+    \item Suspension geometry to be biased approx \SI{80}{\percent} towards cornering over straight-line acceleration, etc.     
+\end{itemize}
+
+\subsection*{Level~1 goals/\allowbreak directives/\allowbreak constraints}
+\begin{itemize}
+    \item Component mass targets set to achieve sub-system and whole vehicle mass targets;
+    \item Timeline budget/\allowbreak material constraints imposed on component designers, etc. 
+\end{itemize}
+
+The above goal-set is not exhaustive, but just representative of the types of reasoning that were being employed at each relevant level. Note that the Level~1 goals and objectives were the simplest of the lot -- once you reason your way down from the top, develop your overall strategy and work it through to the individual components, individual component weight, material, and budget constraints are pretty well defined. From there, we work back up the other side of the “V” to the event itself, and then the final project wraps up, reporting to supporters and sponsors, handover and knowledge transfer, etc. 
+
+In our case, we were looking for a simpler overall vehicle design that would reduce project completion times and were questioning whether we could trade off some engine performance for gains elsewhere. We also had some knowledge that Yamaha was about to release an electric start \SI{450}{cc} single (the WR450), so we might be able to “hitch on” to some marketing hype and help promote a new bike for them. 
+
+\section*{Variables of interest}
+
+So to assess how the above might translate into competition performance, the major variables of interest to us were as follows: 
+
+\begin{itemize}
+    \item Acceleration (divided into forward, lateral and braking)
+    \item Vehicle Mass
+    \item Engine output
+    \item Tyre grip
+    \item Fuel economy
+\end{itemize}
+
+Now simply treating each of the above in isolation of each other doesn’t give a true assessment, since several conflicting relations are linking the above variables. For example, arguments I heard early in our project that “a \SI{50}{hp} car needs to be under \SI{300}{lbs} to match the power to weight ratio of a \num{600/4}” were a bit simplistic -- the power to weight ratio comes into play only on straights, a lesser weight can help you elsewhere around the track too. Understanding the links between the above parameters was vital. 
+
+The most relevant relationships to my argument are listed below, although there are of course many more: 
+
+\begin{enumerate}
+    \item Lateral acceleration tends to increase with reduction of mass (through tire load sensitivity);
+    \item Forward acceleration tends to increase with increased engine output, and with reduced mass; 
+    \item Vehicle mass would tend to increase with increased engine output (due to stronger/\allowbreak heavier components required in the drivetrain, and in the case of different engines concepts, the mass of the engine itself);
+    \item Fuel economy would tend to increase with increasing forward acceleration and velocity (due to higher kinetic energy change along straights and higher wind drag effects).
+\end{enumerate}
+
+So the main design conflicts we had to reason our way around were as follows: 
+
+\begin{itemize}
+    \item More engine performance will give us better forward acceleration but will tend to drive up mass. Through tire load sensitivity this increased mass will tend to make us slower in corners. On the flip side, if we settled for reduced engine output, we could reduce weight considerably and get an amount of return in cornering performance.
+    \item Greater forward acceleration will tend to result in greater energy demand (due to greater change in kinetic energy between corner exit and peak speed, and greater wind drag at higher speeds). Considering fuel consumption to be an energy load multiplied by the thermal efficiency of the engine, this indicates that the increased energy demand will drive up fuel consumption.
+    \item Reduced mass would tend to win all-round, in that it would aid acceleration in every sense and reduce energy demand -- but practically there would be lower limits to this before component stiffness and durability would be compromised.
+\end{itemize}
+
+It was clear that to gain a full understanding of the competition, we had to determine the sensitivity of point-scoring for each of our variables of interest. This would require a track map of some sorts (we had access to a dimensioned 2001 Oz autocross/\allowbreak endurance track map, but it wouldn’t be too hard to come up with one of your own), some good estimates of power and mass, and eventually when we got the tire data we were able to calculate the load sensitivity of the tires and see how mass would affect cornering. 
+
+\section*{Analysis process}
+
+The process, starting with the most rudimentary analysis and moving upwards in complexity, was as follows: 
+
+\subsection*{Stage~1}
+A simple visual scan of the track indicated \num{220} meters of straights and around \num{350} meters of corners (from memory!). There were \num{14} corners, of which only \num{4} had a straight before them and could be considered to require braking (therefore \num{10} corners being entered with no pitching of the vehicle). A rough estimate that about \SIrange{25}{30}{\percent} of each straight was under brakes, gave a rough idea of the amount of time spent on full throttle. A very basic analysis didn’t give any point sensitivity but at least gave some rudimentary info for suspension design goals.
+
+\subsection*{Stage~2}
+Given we were mostly interested in engine performance, the next step was to get some idea of how power affected lap times. The details of this rough analysis are outlined in a thread I wrote a few years ago called “Life, the Universe, \ldots etc” (look it up if you want). Basically, using simple constant acceleration equations we learned in first-year dynamics ($v = u + at, x = ut + \num{0.5}at^2$), we started with an initial corner exit velocity, an assumed acceleration, and then experimented with how much time we saved over a straight if we increased and decreased acceleration by a few percent. These rough hand calculations gave us a point of reference, whereby we discovered an effective \SI{20}{\percent} increase in power might only return us a \SIrange{1}{2}{\percent} decrease in lap times. More useful info than in our first “analysis”, but still a bit rough.
+
+\subsection*{Stage~3}
+To get a realistic comparison between all of the variables you really need to start looking at a more comprehensive lapsim. Now you can go to all the trouble of learning a complex program like ADAMS and do it that way, but being a bit of a simpleton I went and did it all in Excel (I like being able to see all the numbers and check that they are reasonable as I work -- and I could also reduce the lapsim to only the variables I was interested in). So starting with the 2001 track map, we broke it up into 1 meter increments and set about writing the world’s dumbest lapsim: 
+
+\begin{itemize}
+    \item Assume constant lateral accel circular arcs through corners, car following centreline of the track (this defines corner entry and exit speed). Lat Accel value defined by tire grip limit. 
+    \item Constant deceleration braking to the corner entry speed, defined by tire grip limit. 
+    \item Forward acceleration calculated as a function of corner exit speed, mass, power (see Gillespie or any decent vehicle dynamics books for formulae).
+    \item Other programming tricks that you may like to work out for yourself to calculate fuel usage, whether the vehicle is grip or performance limited at each point on the track.
+    \item Etc\ldots 
+\end{itemize}
+
+The spreadsheet was written so that the following variables could be user-defined: 
+
+\begin{itemize}
+    \item Overall Mass 
+    \item Vehicle average power 
+    \item Tyre coefficients of friction in lateral, longitudinal, and braking orientations (at a given normal load) 
+    \item Tyre load sensitivity (derived from TTC data) 
+    \item Vehicle frontal area, \si{Cd}, average rolling resistance, predicted engine thermal efficiency     
+\end{itemize}
+
+The lapsim was then duplicated, so we could calculate values for two different vehicles. Final times for autocross, endurance, accel event and skidpad were then converted to points (using formulae in rules, and assuming the faster car “won” the event for min time values), and voila -- we could get a rough idea of relative points for different concepts. 
+
+To be honest, the final sensitivity analysis took about two good days to program, including food breaks, the odd beer, and the intermittent distraction reading dirt bike mags and the like. It wasn’t that hard. By simplifying the path taken to simple series of straight lines and circular arcs, we reduced lap sim programming from a year-long project to something that a first-year dynamics student should be able to complete. By doing so, we learned a heap about where points are gained are lost in this competition and developed some really useful rules of thumb to help manage and prioritize the design process. Such rules of thumb included: 
+
+\begin{itemize}
+    \item A \SI{1}{\percent} increase in cornering acceleration would give “x” times more points return than a \SI{1}{\percent} increase in engine acceleration.
+    \item A \SI{1}{\percent} increase in cornering acceleration would give “y” times more points return than a \SI{1}{\percent} increase in braking deceleration. 
+    \item A reduction of mass of \SI{1}{\kilogram} would be worth approximately “z” points across the whole competition. 
+    \item A \SI{1}{\percent} increase in engine power would gain around “a” points in lap time, but would also result in around “b” points in fuel economy.
+    \item Etc\ldots
+\end{itemize}
+
+I was satisfied that the analysis was reasonably correct -- despite the simplifying assumptions it was still predicting around \SI{15}{\percent} full throttle time (depending on vehicle concept), max speeds around \SI{110}{\kilo\metre\per\hour}, lap speeds close enough to times recorded around that track. As a means of refining shock settings or other detail refinements, it would be too far off -- but at the conceptual level, it was cheap, quick, simple, easy to use, and gave lots of easily accessible and useful info to drive the project. 
+
+In our particular case, we learned that while we were going to lose points from the straight-line performance by going to the smaller \SI{450}{cc} engine, we were going to make up for some of those points in both cornering performance and fuel economy, (and maybe a few more for cost report and “manufacturability” if we argued the point well right). We were able to quantify this in terms of points, not just argue clumsily in terms of kilos and kW. To be honest, the calculations indicated that in terms of outright potential the \num{450} single would be around \numrange{10}{15} points short of a good \num{600} \SI{4}{cyl} if both were presented perfectly (under the old \num{50} point fuel economy rules). However given our own team circumstances we knew we would come much closer to fully race prepping the simpler single design than a \num{600} four, and hedged our bets there. 
+
+That first \num{450} single car was built rather heavy (around \SIrange{195}{200}{\kilogram}) and wasn't that powerful (around \SI{50}{hp}). But it was finished in time, well tested, and as such was our first car to win an event outright. 
+
+
+
+%-------------------------------------------------------------------------
+\chapter*{OR vs AND}
+\chapterprecis{Posted on 28 December 2010. Available  at \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=36034\&viewfull=1\#post36034}{fsae.com}.}
+
+\section*{Selection vs collection of objectives or OR vs AND or Understanding priorities}
+
+I’ll start with a common scenario I’ve observed as an incoming team approaches the early stages of the design process. The question is asked “What are we going to do this year?”, and some conversation ensues about design objectives. Maybe some team members have been scouring the forums, some have been speaking to alumni, or some have been involved in previous teams or attended last year's comp. Maybe the faculty advisor has chimed in about the university’s expectations, or projected budget and resources, or last year’s team effort. 
+
+So after maybe a minute’s/\allowbreak day’s/\allowbreak week’s/\allowbreak month’s discussion, the team learns that the following attributes are important in FSAE: 
+
+The car should be: 
+
+\begin{itemize}
+    \item Cheap 
+    \item Light 
+    \item Powerful 
+    \item Economical 
+    \item Simple 
+    \item Strong/\allowbreak reliable 
+    \item Stiff 
+    \item Adjustable 
+    \item Comfortable (reasonably\ldots) 
+    \item Compact 
+    \item Easy to drive 
+    \item Predictable 
+    \item Easily manufacturable 
+    \item Built to tight tolerances 
+    \item Well tested and developed The project needs to be delivered: 
+    \item On-time 
+    \item Within budget 
+    \item Within the capabilities and skill set of the team
+    \item The drivers need to be well trained 
+    \item The presenters need to be well prepared and rehearsed for static events 
+    \item Etc\ldots
+\end{itemize}
+
+You can probably add in any number of detail-requirements passed on by alumni, design judges, etc about roll centers, plenum volumes, tire selection, weight distributions, injector locations, load paths, types of bearings to use, upright materials, etc, etc, etc. 
+
+The new team is now well informed, has “learned” some of the key FSAE lessons -- and is utterly swimming in information. 
+
+The crucial next step is what to do with all this info, and this is the point where I have observed a far too common, critical error in the team’s planning. 
+
+\section*{The new team “ANDs” all the information together}
+
+Rather than select which objectives are most important, the team decides that they are just going to do it all. The team’s mission thus becomes this mish-mash of self-contradicting objectives: “This year, our car is going to be lighter, \textsc{and} more powerful, \textsc{and} more economical, \textsc{and} cheaper, \textsc{and} simpler, \textsc{and} stiffer, \textsc{and} easier to drive, \textsc{and} easier to build, \textsc{and} built to tighter tolerances, \textsc{and} we are going to get the car done earlier, \textsc{and} we will do more testing\ldots” 
+
+This is the “everything is a priority” school of FSAE thought, and I believe the key reason we continue to see falling finish rates at FSAE events. The new team believes they are somehow the competition’s new “golden children”, and that they have some new insight or level of commitment that was so obviously lacking in those who came before them. They will be the ones who are going to do it all. So the first \numrange{1}{2} months are spent dreaming up the design solution that is all things to all people, and the next \numrange{3}{6} months over designing it. Another \numrange{3}{6} months is spent trying to manufacture something way beyond the limits of their budget/\allowbreak material resources/\allowbreak people skills. 
+
+Around \numrange{1}{2} months before comp it might be recognized that time is running out and the team is not going to do it all -- so critical objectives start becoming casualties almost by default. Human nature dictates we would rather find consolation than admit to a fault -- so the failed objectives are declared irrelevant: Timeline? “It is ridiculous to think you can finish these cars three months before the competition, and besides, last year’s team were only two weeks ahead of us at this time of year\ldots” Testing time? “We won’t need testing time because our design/\allowbreak build quality is so good that we can afford to finish the car the week before comp\ldots”. 
+
+So competition arrives, the team shows up with a car in some state of disassembly and incompleteness, three of the drivers have never sat in the car before, the team doesn't make it through endurance/\allowbreak skidpad/\allowbreak brake test/\allowbreak team sign-in. The team goes home with assorted DNF's or poor results, but some great new ideas of how next year’s car can be lighter, stiffer, more powerful\ldots 
+
+This isn’t your team? Your team is better than this and would never just pile up all those objectives, especially given the inherent contradictions? Then turn things around and do a simple test. See what happens when you tell your team that you are consciously trading off one of the sacred objectives. “This year’s uprights are going to be stiffer, and easier to manufacture, but a bit heavier”. I reckon in nine teams out of ten, you’d be crucified. At best you will be allowed to hold your mass target to last year’s value, and guaranteed next year’s upright designer will announce your design to be an embarrassment to the team and that his design is so much lighter, and it is also stiffer, easier to manufacture\ldots
+
+An even deeper malaise and we see this one at a much wider level in our society, is that of spin. To achieve one objective, we have to trade-off off on another -- but we refuse to admit it. “Our upright is so much better because it is stiffer, cheaper, and easier to manufacture”. What about weight? “Thank you for asking that question, it is a very good one. Your ignorance is rather endearing, so let me address this issue by explaining to you again how our upright is significantly stiffer, cheaper, and easier to manufacture\ldots” Society is obsessed with the “win-win”, but the world doesn’t work like that. So we resort to word games, and designs that increase incrementally in performance and exponentially in cost, as our design process is pretty well limited to expensive detail optimization of existing designs. 
+
+FSAE design is full of contradictions, compromises, and trade-offs. If you want a perfectly flat contact patch under braking, you have a lousy camber angle in roll (and vice versa). The attribute of engine power usually comes at the expense of fuel usage. Light often plays against stiff. Tight tolerances come at the expense of manufacturing time. Etc etc. 
+
+Good management requires the ability to use the \textsc{or} function. You need the confidence, knowledge, and team support to make decisions as to which objectives are your priorities, and which you are willing to trade-off, and by how much. These are linked to my above words about lap sims, understanding your design structure, and some objective analysis of previous results. 
+
+
+
+%-------------------------------------------------------------------------
+\chapter*{Isolation vs Integration}
+\chapterprecis{Posted on 13 January 2011. Available  at \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=39422\&viewfull=1\#post39422}{fsae.com}.}
+
+Engineering is primarily taught at university as a science. The principle of the scientific method is that you hold the world constant, isolate one parameter, change it, measure the results, pick the most favorable result, repeat. I have no problem with the scientific method as it has done wonderful things for human progress. Just look at health sciences, nanotechnology, material sciences, imaging technologies, etc, etc. But it is one tool, and just like a spanner, you don’t try to adapt it to all jobs. It can also be a rather slow and expensive tool -- how much money do F1 teams spend on wind tunnels (which are, after all, big and fancy rooms designed to hold a small part of the world, the immediate surroundings of a vehicle, constant). 
+
+Engineering is primarily taught at university by scientists. To get into a lecturing position you need a Ph.D., which is effectively a 3-10 year apprenticeship in isolationist science. So the majority of our lecturers are brilliant people, but with specific expertise in maybe one or two fields. They will be able to tell you how to get the best downforce through a diffuser, or how to reduce the void count in your composite layup -- but will be most likely flummoxed when you discuss how the diffuser is compromising your suspension geometry, or that you are happy to accept some slight imperfections as layup time is a greater priority. 
+
+It is worth noting here there is no surer way to get an expert singing his song at full volume than showing him a design where his pet specialty is not “optimized”. 
+
+Engineering is not a science. We use science, but it is just one of the tools we use. Engineering is practical problem solving, and in the real world, it is often the norm when multiple things are interconnected and changing at once. We deal with it, scientists get all frustrated and apply for grants for even bigger experiments.
+
+The problem with studying specific attributes in isolation is that you lose awareness of the relationships between those attributes. Think about the following attributes (significant ones for an FSAE project), and whether they may be complementary or contradictory: 
+
+\begin{itemize}
+    \item Engine Power 
+    \item Braking Power 
+    \item Tyre friction coefficient 
+    \item Component stiffness 
+    \item Weight 
+    \item Size 
+    \item Fuel usage 
+    \item Reliability 
+    \item Manufacturability 
+    \item Cost 
+    \item Project completion time 
+    \item Vehicle Acceleration capability 
+    \item Cornering
+    \item Forward
+    \item Braking 
+\end{itemize}
+
+If you have been taking notice you’ll realize I’ve mixed Level~1, 2, and 4 objectives there -- no problem at this stage. I’ve probably missed a few attributes too, but just note that there is not one attribute in the list that has a complementary relationship with every other attribute. Nor one that has a contradictory relationship with every other. 
+
+\section*{Isolation in FSAE}
+
+The classic conflict in Formula SAE is the power vs weight argument. Separately and in isolation from each other, we may look at these two attributes and agree on two independent guiding principles. 
+
+\begin{enumerate}
+    \item Less weight is better 
+    \item More power is better
+\end{enumerate}
+
+So the team sets off to make the car lighter and the engine more powerful. Simple\ldots 
+
+The trouble is, we have neglected the important relationship between power and mass. More power usually means more mass, as the greater forces require more material to resist those forces. So now we have a conflict -- we want both, but they are working against each other. How do we choose? 
+
+So someone up the back of the room puts his hand up and says “we design for the best power to weight ratio”. We now have a more sophisticated argument, everyone cheers, and problems are solved. In isolation, we decide on “the best power to weight ratio” as our objective. 
+
+The team comes up with two designs. One is a \SI{400}{\kilogram} car with \SI{210}{hp}, the other is a \SI{100}{\kilogram} car with \SI{50}{hp}. Our “the best power to weight ratio” criteria tells us the \SI{400}{\kilogram} car must be best, right? Of course, the first time you try to turn this thing around a corner you’ll be thinking otherwise. If the course is mainly straights, the 400 kg car might triumph -- but in many cases, the smaller car will be better overall. 
+
+So the guiding principles start becoming convoluted: “We want a good power to weight ratio, but we don’t want weight going too high dependant on the percentage of corners to straights on the track”.
+
+Enter Fuel Economy, where fuel usage has a contradictory relationship with power, a complementary relationship with low weight, and is also linked to track layout depending on the top speed and number of acceleration instances: “We want a good power to weight ratio, but we don’t want weight going too high dependant on the percentage of corners to straights on the track, and we don’t want too much power as we start losing fuel points, which is sort of dependant on track layout too. Losing weight seems to have the most positives”.
+
+Enter durability/\allowbreak robustness: “We want a good power to weight ratio, but we don’t want weight going too high dependant on the percentage of corners to straights on the track, and we don’t want too much power as we start losing fuel points, which is sort of dependant on track layout too. Losing weight seems to have the most positives, but that puts us at risk of losing reliability”.
+
+Enter cost, driveability, driver comfort, vehicle size, etc, and it all starts looking like a nightmare. So it starts looking all too hard and isolationism starts looking easier to deal with. “This is all bullshit. We just need more power”. 
+
+\section*{Technical Leaders}
+
+Think of two Chief Engineers making their election speeches. CE1 is an isolationist. CE2 an integrationist.
+
+CE1 stands in front of the team and says: “We want most power. We want less weight. We will have the stiffest chassis and the most tire grip. We will have the smallest and most agile car on the track. We will win fuel economy.
+
+CE2: “We sort of want good power, but not too much as it will drive up weight and probably fuel usage as well. Weight reduction is important, but we don’t want to go too far because it can affect reliability. I reckon weight reduction is around 3-4 times more important than a power increase. Also, too much focus on high power and low weight will absorb too much project time, and we need to cut back on that to get more testing time before the competition. Sticky tires are mostly a good thing, as long as they don’t absorb too much energy and therefore fuel. Small cars are great, but they need to be big enough for the driver to be comfortable. We’ll have to put limits on all our goals as we need to meet budget and timeline\ldots”.
+
+CE1’s are good at winning the confidence and support of the team. Their messages are simple, concise, easy to understand. They sound like they are under control. They rarely deliver a functional car.
+
+CE2’s look like hand-wringing neurotic indecisive crackpots. Often, their discussions seem messy and poorly formed. People smile at them politely and try to ignore them at barbeques. A well-studied CE2 can deliver a cracker of a car, with a nice balance of power, weight, reliability, driveability, etc.
+
+I’ve said it elsewhere here but the trouble with balance is that when you finally find it, some expert will complain how you could have had more of something. The isolationists love this sort of argument. They see their pet attribute lacking in some way and take great pride in announcing how they would have done it better. Unfortunately, such arguments win a lot of support because they sound so simple and convincing, especially to the ongoing stream of novice engineers coming into this project. 
+
+To be honest, I’ve been struggling with this for many years. Our original design was reasonably well balanced -- the cars had enough power, enough “lightness”, enough stiffness, etc, and enough simplicity that we could complete the car on time and budget. We deliberately set a low engine power target, knowing that the points lost in straight-line speed were linked to gains in fuel economy and cornering speed. By building a quite simple car we finished early, tested well, and cashed in on the “incompleteness” of most of our competitors. We found a nice balance point where the relationships between quite a large number of parameters (e.g power, weight, fuel use, cost, completion time, reliability, etc) were working well together. 
+
+Of course, with each new project, the incoming isolationists would have a field day. “If we can win with that fat/\allowbreak oversize/\allowbreak slow/\allowbreak insert-isolated-attribute-here car, imagine what we’ll do when I give it more power/\allowbreak less weight/\allowbreak insert-isolated-attribute-improvement-here\ldots” Trying to convince a newbie to settle for a simple low power engine as it offers better fuel usage combined with lower mass and size leading to better cornering, combined with simpler manufacturing linking to more testing time, combined with improved parts availability due to high volume sales of the donor bike, etc, will nine times out of ten invite a blank stare and the same response -- “but more power will make us faster” 
+
+The critical attributes with large points impacts for this project -- completion time, reliability, testing time, etc -- are rarely linked to the vehicle-based attributes, which are often the less points-effective attributes. The argument goes along the lines of: 
+
+\begin{itemize}
+    \item “We can lose weight by making the ***** out of carbon fiber”. 
+    \item “How many points is it worth?” 
+    \item “Every little bit counts mate, Stuttgart is \num{500} grams lighter than us.” 
+    \item “Reliability?” 
+    \item “Nah, we’ll make sure we design it right.” 
+    \item “Completion time?” 
+    \item “Don’t worry about it, we’ll work harder if we have to.” “Robustness?” 
+    \item “That’s nonsense, this is a race car -- it is meant to fall apart when you cross the finish line.” 
+\end{itemize}
+
+The trick is knowing your design problem. What are the attributes that will bring your team the greatest improvement? Is it really more power? Or is it getting the car finished earlier? Can you trade one to buy the other? Are there other attributes that are more significant again? Only you can answer that, but you need to be honest with yourself. 
+
+You need to do two things to lead your design process:
+
+\begin{enumerate}
+    \item Pick out the attributes most important to you 
+    \item Rank and weight them in order of importance. 
+\end{enumerate}
+
+This can only be achieved by analyzing the competition itself (Level~3) and your own team resources and history (Level~4). I've already spruiked the value of a simple lapsim for the competition analysis side of things. 
+
+A bottom-up, Level~1 driven design process invites oversimplified generalizations like “more power is better” and “we need this to be as stiff and light as possible”. It will deliver blown-out budgets and timelines and an unbalanced vehicle. You will never fully understand why you are doing what you are doing. 
+
+A top-down Level~4 driven process will help you understand how to rank and prioritize competing objectives, as it will give you a detailed understanding of the design problem itself. 
+
+
+
+%-------------------------------------------------------------------------
+\chapter*{Formula Masterchef Analogy}
+\chapterprecis{Posted on 30 May 2011. Available  at \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=46330\&viewfull=1\#post46330}{fsae.com}.}
+
+\section*{Formula Masterchef}
+
+There is a proliferation of cooking shows on Australian television, and it has got me thinking about the similarities between being a good chef and being a good engineer. It is a subject close to my heart as I spent \num{10} years working in a kitchen, and much of what I have learned about good project management comes from that experience. 
+
+In Masterchef (or Iron Chef, or pick your own local variation), the contestants try to prove to the judges that they are the best chef. They do this by presenting the best dish that they can with the resources available to them. In Formula SAE (or Formula Student, or pick your own local variation), the contestants try to prove to the judges that they are the best engineers. They do this by presenting the best car that they can with the resources available to them 
+
+When we came into FSAE, Cornell was doing a brilliant roast beef as their signature dish. The meat was cooked perfectly each year, they made a great gravy, the veggies were spot on. Cornell knew that as long as they kept pumping out their own signature dish, and as long as everyone else thought this was a competition about the best roast beef, then they could pretty well keep the big trophy back at the shop on permanent display. When I visited FSAE Detroit in 2006, I was gobsmacked at how many plates of roast beef were being served up. 
+
+Cornell’s competitive advantage was that they had perfected their signature dish. As long as the opposition’s strategy was to “copy the winners”, then at best they could match Cornell but it would be damn hard to overtake them. 
+
+This competition became interesting when a critical mass of teams started looking into the competition itself and realizing it was not about the best roast beef, it was about who was the best chef. 
+
+So Cornell continued with their roast beef with Yorkshire pudding, red wine gravy, and roasted vegetables. They continued doing a damn good job. Wollongong did a similar roast beef and did a damn good job of that too. 
+
+Monash did roast too, but it had wings. Let’s call it roast turkey. UWA went rather gourmet, aiming for the top end of town. So let's call their dish seared scallops and vegetable fettuccine with saffron beurre blanc (thanks Mr. Google). We looked at our resources, and our history of failed main courses, and realizing we are just simple folk we decided “stuff it, let’s make a chocolate cake”. We served it with fresh berries, homemade ice cream, and raspberry coulis. 
+
+Believe me, when we showed up with our first cake, there was any number of “experts” who, smugly or out of a deep feeling of concern for us, felt obliged to tell us that our cake looked nothing like roast beef. Wow, really??? 
+
+Anyway, now to start beating this analogy to death\ldots 
+
+I’ll start with a couple of sayings I’ve heard that I’ll throw in for good measure: A master chef is one who can serve up a 5-star meal from the cheapest of ingredients. An engineer can do for \SI{10}[\$] what any idiot can do for \SI{100}[\$]. Take those and run with them if you wish. 
+
+\subsection*{It is not just about the ingredients}
+I’ve had common old lamb shanks that were brilliant, and top-line eye fillets that were appalling. The former indicates culinary expertise, the latter a misguided waste of good resources. Don’t think you’ll impress anyone just because you’ve got an eye fillet. It is what you do with it that counts. 
+
+\subsection*{Don’t worry about your neighbor’s pantry}
+Linked to the above, don’t sweat it if your neighbor has access to eye fillets. So what? You can be a great chef without them. Play your own game. 
+
+\subsection*{It ain’t Christmas dinner if you serve it in February}
+A Christmas dinner is served on December \engordnumber{25}, maybe \SI{6}{pm}. Everyone knows that. When the guests sit down at the table, they are expecting to see food, and you had better serve it to them. A hungry customer ain’t going to be impressed by an empty plate and a story about how good the meal might be if he came back next month. Put something on the plate. It might not be what you initially wanted, but any meal is better than none. \SI{70}{\percent} of FSAE chefs each year fail to present a complete plate. 
+
+\subsection*{Don’t cherry-pick others’ designs}
+Cornell might be complimented on their red wine gravy. UWA might be complimented on their seared scallops. RMIT might be complimented on their homemade ice cream. It doesn’t mean that the best meal of all would be seared scallops with homemade ice cream and red wine gravy. I’ve seen some awful Frankenstein’s monsters of cars, (I’m thinking of one I saw that had our engine, Cornell’s turbo, RIT’s rolling chassis, and geometry. Overweight, underpowered, underbaked, unreliable, and drank copious amounts of fuel). Think of how the ingredients work with each other. 
+
+\subsection*{Your design is never going to be all things to all people}
+Some people like big hearty meals. Some like light meals. Some like savory food, some like desserts. Some people just want to get drunk. Design something that fits all the above and you have lost the plot. No-one wants a roast beef with seared scallop chocolate cake and beer smoothie. The judges will look at your design on its own merits. They know you cannot build a car that will win acceleration, and fuel economy, and endurance, and cost event, and skidpad\ldots Explain which are your priorities, and how your design integrates with these priorities. 
+
+\subsection*{Be flexible}
+Sometimes food goes out of season, suppliers can’t supply, etc. Don’t stubbornly stick to your path if you are not possibly going to deliver. Accept it, deal with it, change plans, move on. 
+
+\subsection*{Design Event/\allowbreak Design Review}
+Yes, Pat Clarke can see you have made roast beef. Yes, he is happy you know how long you cooked it for (and would be happier if you knew that a roast should be cooked until it is \numrange{65}{70} degrees in the middle -- that shows a greater understanding). Yes, he can see you have served it with gravy, potatoes, and peas. But he also wants to know \textsc{why did you serve roast beef}? Why not a cake? Why not seafood? Why not an apple? 
+
+We made some good chocolate cakes in our time. We answered the “what” and the “how” reasonably well, but we rarely did a good job of explaining “why”. 
+
+The answer is in the rules, and in your resources\ldots 
+
+
+\subsection*{The limitations of science}
+The scientific method of developing a product is as follows: 
+
+\begin{itemize}
+    \item Take existing product;
+    \item Make one change, test modified product;
+    \item If the modified product is better, adopt change. If worse, reject the change;
+    \item Repeat process.
+\end{itemize}
+
+Science is great for refining your gravy recipe or your cooking times. It is lousy for a high-level, big-picture concept change. 
+
+Try scientifically “optimizing” your way from Roast beef with Yorkshire pudding, red wine gravy, and roasted vegetables to Chocolate mud cake served with fresh berries, homemade ice cream, and raspberry coulis.
+
+All the intermediate steps are awful. Roast beef with Yorkshire pudding, homemade ice cream, and roasted vegetables. Roast beef with Yorkshire pudding, red wine gravy, and raspberry coulis. Roast beef with fresh berries, red wine gravy, and roasted vegetables. Chocolate mud cake with Yorkshire pudding, red wine gravy, and roasted vegetables, etc. 
+
+If you only had a scientific inquiry as your development tool, you would never get from roast to cake or vice versa. A scientific process is a useful tool, but you have got to know its limitations too\ldots 
+
+And that is the fun of engineering. It is a little bit science, but it is also art and imagination and creativity too. 
+
+
+
+%-------------------------------------------------------------------------
+\chapter*{What is your problem?}
+\chapterprecis{Posted on 17 October 2011. Available  at \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=44968\&viewfull=1\#post44968}{fsae.com}.}
+
+Recent conversations, along with some posts I've read here, have got me thinking about how teams view the FSAE design problem, and how the team philosophy can make or break their FSAE project. 
+
+We often think of engineering practice as being applied problem solving, but in engineering design, we are also actually choosing the problems we are going to solve. (And therefore when reviewing designs we should not only review what worked and what didn't, but we should also be taking responsibility for why we chose to focus on that design problem in the first place). 
+
+\section*{What is your FSAE design problem?}
+
+What is your team's overarching design philosophy? What is the team's motivation? What are you trying to achieve this year? What do you think you need to do to be competitive? I'm going to work through a few of what I think are common misconceptions, but firstly I would propose the FSAE design problem can be summarized as follows: 
+
+\subsection*{“We need to score the greatest number of points we can with the resources we have available to us”}
+There are two key points here: 
+
+We need to remember that this is about point-scoring, and all our design decisions should be founded on what delivers the greatest points return. This may not necessarily match our ideas of the perfect race car. Be comfortable with this. 
+
+We need to fully understand that a key factor in understanding the FSAE problem is knowing what we are bringing to the project, in terms of our skills, budget, facilities and support, available man-hours, etc. This isn't fantasyland, this is a real-world problem that needs to be solved in real-time. And we need to recognize that a design solution that is deliverable by another team may not be the right one for us. 
+
+I think it is important for the team to have an overarching problem statement, for some guidance when you are faced with the inevitable detail problems and conflicts we all have to deal with. So with the above in mind, I'll look at some common examples of FSAE “problem statements”, and identify a few shortcomings. 
+
+\subsection*{“We want the fastest car” or “We need to build the fastest car”}
+Admirable as a partial goal, but a little flawed. Firstly, why do we assume that the fastest car will score the most points? How does speed relate to cost, economy, design understanding, etc? For example, we might argue that a more powerful car might get us a quicker lap time. But if the lap time gain is \num{10} points, and in the process, we lose \num{20} points in fuel economy and cost, was the design direction the right one? There is some perception that points scored for outright vehicle speed are more meritable or “cool” than points scored in for example the static events. But in reality, points are points, and it doesn't matter where you get them. 
+
+And where in this statement are we considering our own capabilities to deliver? That is as much a part of planning a successful project as an idea about vehicle speed. It is very easy to dream up a world-beating design if you don't worry yourself about how you'll build it. There is at least some implied reference to being able to build the car in the latter statement. 
+
+\subsection*{“We need to build the lightest car” or “We need to build the most powerful car” or “We need to build the stiffest car”}
+These goals are even more fraught than the previous -- very narrow focus and aiming for an end goal that has at best only an implied link to the FSAE rules. The argument is along the lines of “lightest car $\rightarrow$ fastest car $\rightarrow$ most points”, and both of these assumed relationships can be argued to the contrary. The latter is covered above, and the “lightest car $\rightarrow$ fastest car” argument doesn't address stiffness, reliability, drivability, driver skill, etc. 
+
+There is no prize for the lightest car. Bragging rights maybe? Should anyone care? 
+
+Once again, in the above statement, no consideration is mentioned about the team's ability to deliver such a car. And in fact, having the most or the least of anything usually pushes resources to and beyond their limits -- how many times has the lightest car at the comp not finished (or sometimes not even started) the competition weekend. 
+
+\subsection*{“We must build a lighter/\allowbreak more powerful/\allowbreak stiffer car than we did last year”}
+The constant improvement model, with the implication that for a project to improve on the previous year's effort the car must rate better on most or all of the key design measurables -- weight, power, stiffness, etc. There is some paranoia that a car that is heavier, or less stiff, is absolutely inferior and must be avoided at all costs. I've seen this philosophy work, but I've also seen it drive successful teams over the edge. Be very wary. 
+
+For some years, our team had success with such a model. Each year from 2002 to 2006 we built a lighter car, and we had a number of wins and podiums in this time. The progression was roughly \SI{250}{\kilogram} $\rightarrow$ \SI{200}{\kilogram} $\rightarrow$ \SI{180}{\kilogram} $\rightarrow$ \SI{160}{\kilogram} $\rightarrow$ \SI{150}{\kilogram}, and each year the team was motivated by the desire to outdo the previous team. Warning bells began ringing in 2006 when we started breaking silly things like steering wheel mount bosses, etc. In 2007, the incoming team gave themselves the daunting (impossible?) task of building a lighter, stiffer car whilst trying to solve the serious ergonomic issues of the previous cars, which were hopelessly cramped for the drivers. But the team refused to spend a couple of kgs buying some much-needed driver space. 
+
+Then in 2008, the new cockpit template rules sent the team into a tailspin. The extra driver space was going to cost \SIrange{1}{2}{\kilogram} in chassis weight. This was just unfathomable, and much sweating and hand wringing went into efforts to compensate for this extra mass -- even though the \SIrange{1}{2}{\kilogram} might be worth \numrange{2}{3} points at most. Design time blew out, more high-end materials and techniques meant greater pressure on human resources and facilities, stress levels increased, tensions between team members escalated, etc etc. The result -- a half-completed car, and event results started heading southwards. This trend of needing to “out-spec” the preceding teams continued, and the results have continued to suffer. 
+
+Sometimes your design problem requires backing away from “lighter/\allowbreak stiffer/\allowbreak more powerful”. If you are finishing hundreds of points behind the winners, your major design problem/\allowbreak priority might very well be to build the car sooner, or stronger, or more cheaply, or with fewer resources. Often this will require some trade-off in mass, power, etc to buy the required time, or to align with the team's skills and resources for this year's project. The designer's art is in knowing how far “backward” you can safely go. 
+
+\subsection*{“We need to beat Stuttgart/\allowbreak UWA/\allowbreak Cornell/\allowbreak (insert current “IT” team here)\ldots”}
+Personally, I hate using such philosophies as the core team driving force. It draws the team into comparing themselves to the target team, often leading to perceived resource shortcomings, and railroading the team's mindset towards specific design solutions, (i.e. “Team $X$ has spark-eroded unobtainium uprights, therefore we need them too if we are going to be competitive”). It is difficult to develop your own unique and holistic viewpoint on FSAE when you are obsessing over someone else's project. And anyway, what part of “we need to score the greatest number of points we can with the resources we have available to us” doesn't encompass the above? To beat them, you need to “score the greatest number of points you can\ldots”. And if your best isn't good enough, you are still better of scoring “the greatest number of points you can\ldots” than otherwise. 
+
+
+
+%-------------------------------------------------------------------------
+\chapter*{Simulations}
+\chapterprecis{Posted on 18 November 2013. Available  at \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=117994\&viewfull=1\#post117994}{fsae.com}.}
+
+If you look in any design textbook they will give a design process that looks something like the following:
+
+\begin{itemize}
+    \item Define project purpose/\allowbreak objectives;
+    \item Define project resources;
+    \item Fully understand human resources (skills, availability), budget available, materials and manufacturing processes available;
+    \item Fully ascertain and understand available time;
+    \item Define the problem you are trying to solve and the criteria by which your solution will be judged;
+    \item Propose conceptual design solutions;
+    \item Pick the “best” solution (i.e. the one that will best deliver on the solution judging criteria \textsc{within the constraints of your available resources} -- no apologies for shouting there);
+    \item Detail design of your solution;
+    \item Build it;
+    \item Test it;
+    \item Deliver it;
+    \item Document it;
+\end{itemize}
+
+Iterate back and forth through the above -- hopefully not too many times\ldots
+
+I’ve been deliberately brief about the final few steps -- if you have read the preceding pages you will know I’m more about the early planning stages. 
+
+Now, I propose there are two distinct categories of simulation: 
+
+\begin{enumerate}
+    \item Simulations that you learn about at uni;
+    \item Simulations that are useful.
+\end{enumerate}
+
+These are in most cases mutually exclusive, and in fact, a useful litmus test for the value of a simulation is to show it to your university lecturer. The more excited he gets about it, the less likely it will be of any practical use to anyone. 
+
+OK, so maybe I’m being a little too cynical here. But in my time at uni I learned a lot about multi-parameter optimizations and FEA theory -- but nothing about using basic maths tools for big-picture, practical decision-making. And that is because there was virtually no-one on the academic staff at my uni, or nearly any other uni I’ve been to, who knew how to do it (or was even interested in it, for that matter).
+
+The three points in the design process where simulations are useful are: 
+
+\begin{enumerate}
+    \item Understanding your design problem; 
+    \item Selecting your conceptual design; 
+    \item Refining your design (the detail design stage).
+\end{enumerate}
+
+I’ll group the first two points together as they require similar treatment. I’ll call them the conceptual design phase, whilst the third point is detail design. Some contrasts: 
+
+\begin{itemize}
+    \item Conceptual design is concerned with the big picture, whilst detail design is about individual components and, well, detail.
+    \item Conceptual design is concerned with finding the best return for your available resources, and breaking down the project into subsystem and component targets -- detail design is about meeting the individual and subsystem targets. 
+    \item Conceptual design is about estimation, detail design more about accurate calculation and optimization.
+    \item During the conceptual design phase, shoot anyone who uses the word “optimization”. During the detail design phase, do the same.
+    \item Conceptual design is about sensitivities to the major variables of interest, detail design is more about meeting absolute values. (For example, at the concept design phase, you might work out that one percent weight saving might give “x” times the return of one percent increase in power -- whereas in detail design you might be set a component mass target of, say, \num{150} grams which is measured absolutely. 
+    \item There is less likely to be a commercially available software package to help you with conceptual design (as you are charting your way through a unique and complex problem). Detail design is usually about meeting targets for well-defined variables such as mass or stiffness -- and therefore more likely to be serviced by commercially available packages.
+    \item You need to get your conceptual design phase-out of the way quickly, and you are at a phase in the project where you will have large gaps in your knowledge. Therefore your treatment of this phase needs to be simple and quick. 
+    \item Conceptual design is about gathering information, understanding the problem, and making a decision. Detail design is about delivering on that decision.
+\end{itemize}
+
+I hope I am making it clear that the different phases require different approaches. A simulation with detailed design objectives has limited usefulness in the conceptual design phase. 
+
+I shan’t repeat much of the stuff that I have written previously, but we were designing our car we started by picking out a few major variables of interest (tire grip, mass, power, drag coefficient, engine efficiency), and writing the simplest excel simulation we could that could give us an estimation of which is the most important parameter. We wanted to know the major sensitivities -- whether one factor was an order of magnitude more important than the others, not whether one might give us \num{8.34} points while another might be worth \num{8.45}. 
+
+More importantly, we wanted to gauge how important the major parameters were in comparison to how many points we were trailing the leaders. I harp on this point but still, the point gets missed -- if you find that \SI{1}{\kilogram} weight saving is worth, say \num{2} points, and you finished \num{400} points behind the winners of your last event, then saving weight isn’t going to put you on the top of the podium. 
+I suggest the following for teams embarking on a new design project: 
+
+\begin{itemize}
+    \item Read and understand the criteria by which you are being judged for this project -- whether it be points scored or lap times or dollars spent.
+    \item Pick out \numrange{5}{6} variables at most that you consider most significantly influence the final judging criteria.
+    \item Using mathematical tools no more advanced than Excel, and theory no more advanced than what you learned in the first year, write the simplest comparative analysis you can \textsc{in no more than one weekend}. 
+    \item If anyone mentions the words “transient”, “absolute” or “nonlinear”, quietly walk them outside and show them the guy who mentioned the word “optimization”. 
+    \item At the end of the process, define a measure of how important each variable is relative to each other, and relative to the overall point score you need to achieve. 
+\end{itemize}
+
+The secret to winning: Convince your own team to simplify Convince your opponents they have over-simplified.
+
+
+
+%-------------------------------------------------------------------------
+\chapter*{Team culture}
+\chapterprecis{Posted on 25 January 2014. Available  at \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=118571\&viewfull=1\#post118571}{fsae.com}.}
+
+This isn't specifically about the original topic, but I thought I'd throw this here as some added material -- given team politics play so much of a role in team success -- or failure. 
+
+This morning I caught up with Steve Price, our Team Leader from 2003, and I would say the best team leader I saw during my time at RMIT. We happened to start chatting about team structures and teams. Now we were fortunate to have a very good team in ’03, comprised of a lot of people who were friends before we were on the FSAE team. But the key points that characterized the ’03 team were: 
+
+\begin{itemize}
+    \item It was \textbf{inclusive} -- \textsc{Everyone} was welcomed to the team, and invited to team bbq’s and the like -- whether they were the first year, final year, whether they were experienced or complete novices.
+    \item It was \textbf{social} -- Steve made sure that there was downtime each week for everyone to recalibrate/\allowbreak calm down/\allowbreak download/\allowbreak vent/\allowbreak laugh. \textsc{Especially} to laugh. 
+    \item It was \textbf{visible} -- We made sure that the uni staff, the students, the visitors, anyone who came on campus, would see the team operating -- e.g. holding meetings in the caf at 5 pm when all the staff would be walking by to go home, or 
+    \item It was \textbf{welcoming} -- When new students came in, or when other uni teams were in town visiting, or when the uni had guests to be entertained/\allowbreak impressed, the team would be ready to roll out the welcome mat. 
+    \item It was \textbf{collaborative} -- The vehicle was designed with guided input from all. For example, each Wed night we would have a team CAD session where we would drag up the CAD model and visually explain design issues, shortcomings, automotive theory, etc. The senior students drove the development, but the junior students could sit in to listen/\allowbreak ask questions/\allowbreak learn. 
+    \item It was \textbf{focussed} -- We knew our priorities, we knew what was a need and what was just wants -- and we only attended to the needs.
+    \item It was \textbf{calm} -- Yep, sure there were stressful times -- but the team did its best work when it remained calm under pressure -- wherever possible! 
+    \item It was \textbf{team-oriented} -- We were all there for the team’s growth and development -- that no one person was bigger than the team, and that no one project year was more important than the others. 
+    \item It was \textbf{future-oriented} -- We were building the team for future success. Our year was the first of a three-year plan, and we had the people who understood this and were happy to curb their own ambitious designs in order to just get a result for the team and the experience on which we could build better cars in the future. (This is a big one -- many teams I speak to now over-design and over-commit for \textsc{this} year, because, well, we’re graduating at the end of the year and we want to leave our mark on the project).
+    \item It was \textbf{respectful} -- Yep, we sure took the mickey out of each other, but the overarching culture was one of respect -- that the management was doing their best, that everyone was feeling out of their depth at times, we were all in this together, and that when a decision was made that was that -- and that arguing further was detrimental to the project. 
+\end{itemize}
+
+The result of all this was that students would come to the team and want to do something for it. Work would be done for the team’s benefit, and for the joy of being part of the process -- not because there was some sort of obligation or threat. 
+
+The key points were the last three I guess. The team members took joy from the trajectory the team was on, and there was a distinct long-term focus. Thus when we did win events, for example in 2006, the 2003 team members felt they were just as much a part of the celebrations as the competing team members. I see this in a select number of Australian teams at the moment and will be very keen to see how their results go in the next few years. 
+
+Good things happen when the focus goes from one’s self to one’s team, and to its ongoing success. 
+
+On the other hand, when a team starts to go on a downward trajectory, a lot of the above goes out the window. A few bad results can see a good team set up its own self-fulfilling downward spiral, particularly when the above points are jettisoned because the team doesn’t have time for social events, hosting other teams, training first years, politeness and respect, etc.
+
+I've been watching a few teams over recent years, and have noticed some interesting (and consistent) trends. As performance/\allowbreak results in the FSAE event begin to drop away, pressure begins building and the “fun” factor begins to drop away too. A result of a bad finishing position is often a commitment to “try harder”. In one specific example, as a previously successful team started getting some less spectacular results, the team culture changed from one of encouragement to one of criticism and ridicule. If you didn’t match team leaders for the number of hours you spent in the workshop, then you were crap. As the enjoyment fell away, team enthusiasm dropped off, team membership dropped off, and thus the team leaders were left with even more work -- and so on. 
+
+The trouble with the “just try harder” culture is that it just wears everyone out. It is not sustainable.
+
+If your yearly plan necessitates your team members to work on the project every day, and every spare minute, then you have prepared the wrong plan. If your culture is one of suspicion and ridicule whenever someone takes a day off or does something wrong, you have the wrong leaders.
+
+The focus should be on working smarter, not harder. This of course comes back to knowing your priorities, which means understanding the design problem you are facing. There, I think I've now linked this back to the original topic\ldots
+
+I suspect a lot of the above is stating the obvious, but I’m seeing a few cultural issues within teams causing problems and thought the above might help some.
+
+
+
+%-------------------------------------------------------------------------
+\chapter*{Team direction, mission statements, and proving a point}
+\chapterprecis{Posted on 24 February 2014. Available  at \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=118853\&viewfull=1\#post118853}{fsae.com}.}
+
+Spent a few minutes chatting with Kev Hayward yesterday at ECU. And then a few hours more. As with all my conversations with Kev, his input offers me moments of great clarity, and a variety of other moments too. 
+
+I’ve been asked many times how to structure a Formula SAE project. I’ve seen teams that have worked well, and teams that have imploded. I get asked how to best structure teams, advice on organizational charts, how to manage conflicts, etc, etc. I’ve seen teams that have excelled one year, and have crashed the next, and yet have run the same project management structure through both years. 
+
+I have decided that the best way to unite a team and put yourself above and beyond the petty struggles and bickering, is to engage the team by proving a point. 
+
+\begin{description}
+    \item[RMIT 2003--2007] proving a point that you didn’t need a big motor to be fast.
+    \item[UWA 2003--20??] proving a point that they knew vehicle dynamics better than anyone, especially with their kinetics suspension package.
+    \item[Monash] proving a point with aero, and with an understanding of human resources. 
+    \item[UQ 2004--20??] proving a point that you didn’t need a diff.
+\end{description}
+
+I’d also look at individuals like Rob Woods and his team at Buffalo as an example of a team that seemed energized and passionate, and keen to do something different with their Briggs and Stratton car. ECU seems united with a novel approach to their project this year. I could go on, but I do. 
+
+In my travels around the country this year, I am seeing many teams as they kick off their 2014 projects, and I’d general categorize teams into two distinct types: 
+
+\begin{itemize}
+    \item Teams that are on a mission; 
+    \item Teams that are optimizing parts. 
+\end{itemize}
+
+Now both types are energetic, enthusiastic, and mostly charging into their new designs at this time of year. Some have good management structures, some are conscious of their people and are saying the right things about timelines and over-ambition and any number of things that are written on these boards. 
+
+The former though have a vision, a point they are trying to prove. It isn’t just a lame, “we are going to be the best in the world”, let’s-\allowbreak make-\allowbreak a-\allowbreak vision-\allowbreak statement-\allowbreak because-\allowbreak Krystal-\allowbreak the-\allowbreak team’s-\allowbreak management-\allowbreak coach-\allowbreak says-\allowbreak we-\allowbreak need-\allowbreak to-\allowbreak make-\allowbreak a-\allowbreak vision-\allowbreak statement type of vision statement. It is that this team is going to bust their guts to prove that\ldots is\ldots, and what’s more, everyone else is\ldots because they are doing\ldots
+
+That sort of from-the-heart drive is what unites a team. You see it in whole countries at times of war. You don’t see it in teams that reckon they are going to win FSAE, and are going to do so by passionately optimizing the pedal tray and fixing last year’s understeer on turn-in and that problem we have got with the chain tensioner. 
+
+I couldn’t do FSAE again, as I see it in most teams. I mean, it is fun, and we learn, but unless there is some driving passion, some \textsc{united} point we wish to prove, then there is nothing but an individual wants that drives the team and team politics and bickering will eventually raise their ugly head. But when I saw the ECU project yesterday and saw the passion and the unity and the point they were proving, I came home and dragged out the pencils and started sketching ideas again. 
+
+Some points to prove: 
+
+\begin{itemize}
+    \item That suspension doesn’t require double wishbones and $\num{10}+$ points of relative motion on each corner; 
+    \item That you can build a fast car with purely locally made components; 
+    \item That you can make a car out of wood; 
+    \item That you can design a car that you can manufacture from scratch in less than a month;
+    \item That you can design a car that you can manufacture in less than a fortnight; 
+    \item That you can design a car that costs you less than \SI{10000}[\$]; 
+    \item That you can design a car with less than half the number of parts than your last one; 
+    \item That you don’t need a gearbox;
+    \item Etc.
+\end{itemize}
+
+And that any of the above can finish top 10.
+
+Teams that have a point to prove inspire me. Unless of course, that point is that they can spend more money, or use more resources, or make more parts out of carbon fiber than their competitors. 
+
+
+
+%-------------------------------------------------------------------------
+\chapter*{Team strengths and weaknesses}
+\chapterprecis{Posted on 25 February 2014. Available  at \href{http://www.fsae.com/forums/showthread.php?362-Reasoning-your-way-through-the-FSAE-design-process\&p=118867\&viewfull=1\#post118867}{fsae.com}.}
+
+I have been traveling around the country a bit visiting FSAE teams, and have had some very interesting discussions about the relative strengths and weaknesses of different teams. In the interest of sharing the knowledge, I thought I’d catalog what I’d found. 
+
+The names have been changed to protect the fictional\ldots
+
+\begin{description}
+    \item[University] AAA University.
+    \item[Weakness] Lack of budget. This team used to receive quite a handy budget from the university, but funding cuts have meant that their recent budgets have been slashed to less than half what they used to be. The team members are quite despondent, as their previous successes were founded on the liberal use of carbon, and they know in their hearts that without it they have no chance of winning. The drivetrain leader has resigned because he cannot implement the carbon fiber driveshafts that he had designed. Tensions high throughout the team, team members leaving. The team leader furious because no-one wants to work hard anymore, the car is not running, his girlfriend is leaving him and he isn’t getting time to work on the drag reduction system he is designing. 
+    \item[Request from the team] If anyone knows anyone who would like to sponsor the team, please let me know and I will pass on the message. The team needs another \SI{50000}[\$] to be competitive.
+\end{description}
+
+\plainbreak{2}
+
+\begin{description}
+    \item[University] BBB Institute of Technology.
+    \item[Strength] Low budget. This team used to receive quite a handy budget from the university, but funding cuts have meant that their recent budgets have been slashed to less than half what they used to be. The team’s previous successes were founded on the liberal use of carbon, which was cool, but which absorbed a huge amount of time, energy, and money. BBB is treating the low budget as an opportunity, as it is forcing them to reassess their priorities and look for cheap, simple solutions in keeping with the intent of the competition. A few simple simulations and calculations and they are happy that they can compensate most if not all of the performance points with points in cost and fuel economy. The team is united and eager to prove that they can do this. As it stands, they are ahead of schedule and quite calm and happy, since their simple design is quite easy to put together.    
+    \item[Request from the team] That everyone watch out, BBB is on a mission\ldots
+\end{description}
+
+\plainbreak{2}
+
+\begin{description}
+    \item[University] University of CCC.
+    \item[Weakness] New team members, lack of experience. With the coming of the new year, CCC has seen their successful senior design team of recent years of Rob C, Graeme C, Simon C, and Colin C finally graduate, and the team seems a bit confused and almost “scared” at the moment. The new team is very conscious of their lack of experience, and they look overwhelmed every time they need to make a decision. They know deep in their hearts that with such a young team they have no chance of winning. They are pretty angry about it. After all, how can they compete with when their nearest rival team is DDD Uni, who has Brian D for a faculty advisor who has been in the FSAE game for years. In fact, CCC has recently complained to the organizing committee as that they know that Brian D is actively helping design and build DDD’s car, and they even secretly showed me the “smoking gun” as they have in their possession a photo of Brian D with a spanner.     
+    \item[Request from the team] That the Rules Committee make a rule to ban Faculty Advisors who own, or have owned spanners, or who have used spanners in a professional application.
+\end{description}
+
+\plainbreak{2}
+
+\begin{description}
+    \item[University] University of DDD.
+    \item[Strength] New team members, lack of experience. With the coming of the new year, DDD has seen their successful senior design team of recent years of Rob D, Graeme D, Simon D, and Colin D finally graduate, and the team is eager to prove itself as a contender in the new era post-Rob/\allowbreak Graeme/\allowbreak Simon/\allowbreak Colin. The new team is very conscious of their lack of experience, and they see it as a challenge. They know deep in their hearts that with such a young team they have the chance to plot a new direction. They are pretty buoyant about it. They have been in contact with Rob/\allowbreak Graeme/\allowbreak Simon/\allowbreak Colin, who are thrilled to see the new team forging ahead and plotting their own course. Rob/\allowbreak Graeme/\allowbreak Simon/\allowbreak Colin have some arguments and disagreements with the new guys, but they confided in me that they are really pleased to see the new guys standing up to them and having a go. Faculty Advisor at DDD, Brian D, who recently won a spanner for his services to the local engineering community, was quite animated when he told me that the team had pulled together to go on a team camp to bond and to decide the color of the new car as a team-building exercise. Brian asked me about CCC University, as he invited them along to the team camp but they didn’t return his calls. 
+    \item[Request from the team] That Brian C, Faculty Advisor at CCC, give Brian D a call so that they might meet and chat about potential collaborations between the two teams. Brian D is interested in offering the use of his new spanner to CCC, in exchange for occasional use of their \SI{6}{\milli\metre} Allen key.
+\end{description}
+
+\plainbreak{2}
+
+\begin{description}
+    \item[University] EEE University College of Advanced Technical Universities.
+    \item[Strength] Brilliant facilities. EEE has just had an all-new purpose-built FSAE workshop completed, which is the envy of FSAE teams around the country. They have 5-axis screwdrivers, CNC ‘ed double overhead cam laser-etched window latches, and a new spanner. The team has 24 hours a day access, a reward for their proactive efforts at improving OH\&S procedures and responsible behavior. They welcome uni tour groups, high school tour groups, and recently had ABBA playing at their concept design review and hard-point freeze in their workshop facility foyer auditorium. They keep it spotless and work on the principle that good facilities enable them to build their simple, elegant car more quickly, rather than enable them to cram more into the year. 
+    \item[Request from the team] That we are all invited to a viewing of Eric Bana’s “Love the Beast” on Sunday the \engordnumber{30} February at 7:00 pm. Foyer auditorium, bring pretzels.
+\end{description}
+
+\plainbreak{2}
+
+\begin{description}
+    \item[University] FFF Institute of Advanced Technical University Technically Advanced Institutions.
+    \item[Weakness] Brilliant facilities. FFF has just had an all-new purpose-built FSAE workshop completed, which is the envy of FSAE teams around the country. They have 5-axis screwdrivers, CNC ‘ed double overhead cam laser-etched window latches, and a new spanner. The team had 24 hours a day access but lost it because they refused to clean up the composites lab. They aren't happy, because they wanted 7 axis screwdrivers but the uni only gave them 5 axes. They work on the principle that good facilities enable them to cram more into the year than to build a simple, elegant car more quickly. Their last car looked like R2D2 mated with a Transformer. They came last, finishing just behind a plastic Aerofix model of R2D2 mating with a Transformer.
+    \item[Request from the team] Space to rent. High tech workshop available, brand new except for singe marks in the middle of design office where previous tenants spontaneously self-combusted. Contact Brian F on F@FFF.fsae.fail.edu.com.org.au 
+\end{description}
+
+I’ll update you with more Australian FSAE news as it comes to hand\ldots
+
+\end{document}
